@@ -7,28 +7,26 @@ class TransactionManager:
         pass
 
     def ValidateIBAN(self, IbAn):
-        # Step 1: Check if IBAN starts with 'ES' and is 24 characters long (2 for country code + 2 for check digits + 20 for account number)
-        if len(IbAn) != 24 or not IbAn.startswith("ES"):
+        # Check if it is correct length. If it is, make sure it is written
+        # with the correct format.
+        if not IbAn.startswith("ES") or len(IbAn) != 24:
             return False
-
-        # Step 2: Separate the parts of the IBAN
-        country_code = IbAn[:2]
-        check_digits = IbAn[2:4]
-        account_number = IbAn[4:]
-
-        # Step 3: Ensure account number is all digits
+        else:
+            iban = IbAn.replace(" ", "").upper()
+        # separating iban
+        country_code = iban[:2]
+        check_digits = iban[2:4]
+        account_number = iban[4:]
+        # another verification to see if all are numbers
         if not account_number.isdigit():
             return False
-
-        # Step 4: Create a string by moving the country code and check digits to the end
-        rearranged_iban = account_number + country_code + check_digits
-
-        # Step 5: Replace country code with their numeric equivalents (E=14, S=28)
-        rearranged_iban = rearranged_iban.replace('E', '14').replace('S', '28')
-
-        # Step 6: Perform the modulus operation (mod 97)
-        iban_number = int(rearranged_iban)  # Convert to integer
-        if iban_number % 97 == 1:
+        # rearranging the iban
+        rearranged_first = account_number + country_code + check_digits
+        # replace country code with their numeric equivalents (E=14, S=28)
+        rearranged_second = rearranged_first.replace("E", "14").replace("S", "28")
+        # perform mod 97
+        rearranged_final = int(rearranged_second)  # convert to int
+        if rearranged_final % 97 == 1:
             return True
         else:
             return False
