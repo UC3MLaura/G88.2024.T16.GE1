@@ -68,7 +68,9 @@ ignored-modules=
 
 # Python code to execute, usually for sys.path manipulation such as
 # pygtk.require().
-init-hook= 'import sys; sys.path.append("G88.2024.TXX.GE1/UC3MMoney")' #CHANGE
+#MODIFIEDRULE
+#init-hook=
+init-hook= 'import sys; sys.path.append("G88.2024.TXX.GE1/UC3MMoney")'
 
 # Use multiple processes to speed up Pylint. Specifying 0 will auto-detect the
 # number of processors available to use, and will cap the count on Windows to
@@ -127,12 +129,16 @@ argument-naming-style=snake_case
 #argument-rgx=
 
 # Naming style matching correct attribute names.
-attr-naming-style=camelCase #CHANGE
+# MODIFIEDRULE
+# attr-naming-style=snake_cases
+attr-naming-style=camelCase
 
 # Regular expression matching correct attribute names. Overrides attr-naming-
 # style. If left empty, attribute names will be checked with the set naming
 # style.
-attr-rgx=^_?[a-z][a-z0-9_]*$ #CHANGE
+# MODIFIEDRULE
+# attr-rgx=
+attr-rgx=^_?[a-z][a-z0-9_]*$
 
 # Bad variable names which should always be refused, separated by a comma.
 bad-names=foo,
@@ -179,7 +185,9 @@ const-naming-style=UPPER_CASE
 
 # Minimum line length for functions/classes that require docstrings, shorter
 # ones are exempt.
-docstring-min-length=10 #CHANGE requires docstrings
+# MODIFIEDRULE
+# docstring-min-length=-1
+docstring-min-length=10
 
 # Naming style matching correct function names.
 function-naming-style=snake_case
@@ -190,9 +198,16 @@ function-naming-style=snake_case
 #function-rgx=
 
 # Good variable names which should always be accepted, separated by a comma.
+# MODIFIEDRULE
+# good-names=i,
+#            j,
+#            k,
+#            ex,
+#            Run,
+#            _
 good-names=i,
            j,
-           k #CHANGE
+           k
 
 # Good variable names regexes, separated by a comma. If names match any regex,
 # they will always be accepted
@@ -296,7 +311,9 @@ max-attributes=7
 max-bool-expr=5
 
 # Maximum number of branch for function / method body.
-max-branches= 10 #CHANGE reduce num of branches
+# MODIFIEDRULE
+# max-branches=12
+max-branches=10
 
 # Maximum number of locals for function / method body.
 max-locals=15
@@ -311,10 +328,14 @@ max-positional-arguments=5
 max-public-methods=20
 
 # Maximum number of return / yield for function / method body.
-max-returns=5 #CHANGE reduce number of returns
+# MODIFIEDRULE
+# max-returns=6
+max-returns=5
 
 # Maximum number of statements in function / method body.
-max-statements=60 #CHANGE
+# MODIFIEDRULE
+# max-statements=50
+max-statements=60
 
 # Minimum number of public methods for a class (see R0903).
 min-public-methods=2
@@ -339,10 +360,14 @@ indent-after-paren=4
 
 # String used as indentation unit. This is usually "    " (4 spaces) or "\t" (1
 # tab).
-indent-string='  ' #CHANGE
+# MODIFIEDRULE
+# indent-string='    '
+indent-string='  '
 
 # Maximum number of characters on a single line.
-max-line-length=150 #CHANGE
+# MODIFIEDRULE
+# max-line-length=100
+max-line-length=150
 
 # Maximum number of lines in a module.
 max-module-lines=1000
@@ -389,7 +414,9 @@ int-import-graph=
 known-standard-library=
 
 # Force import order to recognize a module as part of a third party library.
-known-third-party=enchant, requests #CHANGE
+# MODIFIEDRULE
+# known-third-party=enchant
+known-third-party=enchant, requests
 
 # Couples of modules and preferred modules, separated by a comma.
 preferred-modules=
@@ -399,7 +426,9 @@ preferred-modules=
 
 # The type of string formatting that logging methods do. `old` means using %
 # formatting, `new` is for `{}` formatting.
-logging-format-style=new #CHANGE
+# MODIFIEDRULE
+# logging-format-style=old
+logging-format-style=new
 
 # Logging modules to check that the string format arguments are in logging
 # function parameter format.
@@ -441,7 +470,9 @@ disable=raw-checker-failed,
 # either give multiple identifier separated by comma (,) or put this option
 # multiple time (only on the command line, not in the configuration file where
 # it should appear only once). See also the "--disable" option for examples.
-enable=typecheck #CHANGE
+# MODIFIEDRULE
+# enable=
+enable=typecheck
 
 
 [METHOD_ARGS]
@@ -551,7 +582,9 @@ spelling-store-unknown-words=no
 
 # This flag controls whether inconsistent-quotes generates a warning when the
 # character used as a quote delimiter is used inconsistently within a module.
-check-quote-consistency=yes #CHANGE
+# MODIFIEDRULE
+# check-quote-consistency=no
+check-quote-consistency=yes
 
 # This flag controls whether the implicit-str-concat should generate a warning
 # on implicit string concatenation in sequences defined over several lines.
