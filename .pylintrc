@@ -68,9 +68,7 @@ ignored-modules=
 
 # Python code to execute, usually for sys.path manipulation such as
 # pygtk.require().
-#MODIFIEDRULE
-#init-hook=
-init-hook= 'import sys; sys.path.append("G88.2024.TXX.GE1/UC3MMoney")'
+init-hook=
 
 # Use multiple processes to speed up Pylint. Specifying 0 will auto-detect the
 # number of processors available to use, and will cap the count on Windows to
@@ -136,9 +134,7 @@ attr-naming-style=camelCase
 # Regular expression matching correct attribute names. Overrides attr-naming-
 # style. If left empty, attribute names will be checked with the set naming
 # style.
-# MODIFIEDRULE
-# attr-rgx=
-attr-rgx=^_?[a-z][a-z0-9_]*$
+attr-rgx=
 
 # Bad variable names which should always be refused, separated by a comma.
 bad-names=foo,
@@ -187,7 +183,7 @@ const-naming-style=UPPER_CASE
 # ones are exempt.
 # MODIFIEDRULE
 # docstring-min-length=-1
-docstring-min-length=10
+docstring-min-length=5
 
 # Naming style matching correct function names.
 function-naming-style=snake_case
