@@ -98,9 +98,10 @@ class TransactionManager:
       raise TransactionManagementException("JSON Decode Error - Invalid JSON Key") from error
 
     if not self.validate_iban(t_from):
-      raise TransactionManagementException("Invalid FROM IBAN")
-    if not self.validate_iban(t_to):
-      raise TransactionManagementException("Invalid TO IBAN")
+      print("Invalid FROM IBAN")
+    else:
+      if not self.validate_iban(t_to):
+        print("Invalid TO IBAN")
 
     return request
 

@@ -50,7 +50,7 @@ def decode(word):
 def main():
   """Main function for handling transaction processing."""
   manager = TransactionManager()
-  result = manager.read_product_code_from_json("test.json")
+  result = manager.read_product_code_from_json("invalid_test.json")
 
   result_str = str(result)
   print(result_str)
